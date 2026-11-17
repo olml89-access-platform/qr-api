@@ -1,0 +1,7 @@
+.idea/
+.git
+var/
+vendor/
+.env
+.env.*
+!.env.example

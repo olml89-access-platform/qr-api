@@ -1,0 +1,26 @@
+name: access-platform
+
+services:
+  qr-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: prod
+    environment:
+      APP_ENV: prod
+      APP_DEBUG: "false"
+    command:
+      - frankenphp
+      - run
+      - --config
+      - /etc/frankenphp/Caddyfile
+    ports:
+      - ${HTTP_PORT:-8080}:80
+      - ${HTTPS_PORT:-8081}:8443
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  caddy_data:
+  caddy_config:
