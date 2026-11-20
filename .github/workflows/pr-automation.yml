@@ -1,0 +1,14 @@
+name: PR Automation
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+
+jobs:
+  synchronize:
+    uses: olml89-access-platform/.github/.github/workflows/pr-automation.yml@main
+    secrets:
+      PR_TOKEN: ${{ secrets.PR_TOKEN }}
