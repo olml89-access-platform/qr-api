@@ -6,6 +6,14 @@ on:
       - opened
       - edited
       - reopened
+      - synchronize
+
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Pull Request number to synchronize
+        required: true
+        type: number
 
 jobs:
   synchronize:
