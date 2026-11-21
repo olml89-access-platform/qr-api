@@ -1,0 +1,16 @@
+services:
+  qr-api:
+    build:
+      target: dev
+      args:
+        XDEBUG_PORT: ${XDEBUG_PORT:-9003}
+    environment:
+      APP_ENV: ${APP_ENV:-dev}
+      APP_DEBUG: ${APP_DEBUG:-true}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - .:/app
+      - ./Caddyfile:/etc/frankenphp/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config

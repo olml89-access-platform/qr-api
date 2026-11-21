@@ -1,0 +1,12 @@
+{
+    frankenphp
+    https_port 8443
+}
+
+localhost {
+    root * /app/public
+
+    encode zstd gzip
+
+    php_server
+}
